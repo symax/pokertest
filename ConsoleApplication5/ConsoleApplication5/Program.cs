@@ -13,10 +13,15 @@ namespace ConsoleApplication5
         private const string path = @"D:\Git\Test\ConsoleApplication5\ConsoleApplication5\";
         static void Main(string[] args)
         {
-            using (var image = new CvMat(path + "screen.png"))
+            using (var src = new IplImage(path + "screen.png"))
             using (var template = new CvMat(path + "spades.png"))
-            using (var result = new IplImage(new CvSize(image.Cols - template.Cols + 1, image.Rows - template.Rows + 1), BitDepth.F32, 1))
             {
+                int x = 445, y = 470, rW = 21, rH = 43;
+                Cv.SetImageROI(src, new CvRect(x, y, rW, rH));
+                Cv.SaveImage("temp.png", src);
+                Cv.ResetImageROI(src);
+                var image = new CvMat(path + @"bin/Debug/temp.png");
+                var result = new IplImage(new CvSize(image.Cols - template.Cols + 1, image.Rows - template.Rows + 1), BitDepth.F32, 1);
                 Cv.MatchTemplate(image, template, result, MatchTemplateMethod.CCoeff);
                 double minVal, maxVal;
                 
