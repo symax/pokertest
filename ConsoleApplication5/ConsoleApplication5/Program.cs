@@ -10,7 +10,7 @@ namespace ConsoleApplication5
 {
     class Program
     {
-        private const string path = @"C:\Users\Максим\Documents\Visual Studio 2012\Projects\ConsoleApplication5\ConsoleApplication5\";
+        private const string path = @"D:\Git\Test\ConsoleApplication5\ConsoleApplication5\";
         static void Main(string[] args)
         {
             using (var image = new CvMat(path + "screen.png"))

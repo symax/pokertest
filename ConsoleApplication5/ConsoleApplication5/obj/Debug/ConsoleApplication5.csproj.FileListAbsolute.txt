@@ -31,3 +31,36 @@ C:\Users\Максим\Documents\Visual Studio 2012\Projects\ConsoleApplication5\
 C:\Users\Максим\Documents\Visual Studio 2012\Projects\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.csprojResolveAssemblyReference.cache
 C:\Users\Максим\Documents\Visual Studio 2012\Projects\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.exe
 C:\Users\Максим\Documents\Visual Studio 2012\Projects\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.pdb
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe.config
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.exe
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.pdb
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\msvcp100.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\msvcr100.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharpExtern.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_calib3d248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_contrib248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_core248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_features2d248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_ffmpeg248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_flann248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_gpu248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_highgui248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_imgproc248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_legacy248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_ml248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_nonfree248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_objdetect248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_ocl248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_photo248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_stitching248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_superres248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_video248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\opencv_videostab248.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.exe
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\ConsoleApplication5.pdb
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.Blob.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.CPlusPlus.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.Extensions.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.UserInterface.dll
+D:\Git\test\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.csprojResolveAssemblyReference.cache
