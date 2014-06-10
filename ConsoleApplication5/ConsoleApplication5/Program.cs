@@ -129,7 +129,7 @@ namespace ConsoleApplication5
                                                  new CvMat(path + "RAce.png"),});
             }
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 13; i++)
             {
                 template = templates[i];
                 result = new IplImage(new CvSize(image.Cols - template.Cols + 1, image.Rows - template.Rows + 1), BitDepth.F32, 1);
