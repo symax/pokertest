@@ -15,18 +15,25 @@ namespace ConsoleApplication5
         static void Main(string[] args)
         {
             //взять 1 скрин
+            IplImage src = new IplImage(path + "screen1.png");
+            Card c1, c2;
             Console.WriteLine("В руке:\n");
-            WhatSuit(445, 470);
-            WhatSuit(506, 470);
+            c1 = WhatSuit(445, 470, src);
+            c2 = WhatSuit(506, 470, src);
             //выдать шансы улучшить руку
+            Odds.PreFlopOdds(c1, c2);
 
+            
             //взять 2 скрин
+            src = new IplImage(path + "screen2.png");
             Console.WriteLine("\nНа столе:\n");
-            WhatSuit(348, 272);
-            WhatSuit(413, 272);
-            WhatSuit(478, 272);
-            //выдать шансы улучшить руку
+            Card d1 = WhatSuit(348, 272, src);
+            Card d2 = WhatSuit(413, 272, src);
+            Card d3 = WhatSuit(478, 272, src);
+            //выдать текущую комбинацию и шансы улучшить руку
+            Odds.FlopOdds(c1, c2, d1, d2, d3);
 
+            /*
             //взять 3 скрин
             WhatSuit(543, 272);
             //выдать шансы улучшить руку
@@ -34,14 +41,13 @@ namespace ConsoleApplication5
             //взять 4 скрин
             WhatSuit(608, 272);
             //выдать итоговую комбинацию
+             */
 
             Console.ReadKey(true);
         }
 
-        static void WhatSuit(int x, int y)
+        static Card WhatSuit(int x, int y, IplImage src)
         {
-            var src = new IplImage(path + "screenriver.png");
-
             List<CvMat> templates = new List<CvMat>(new CvMat[] { new CvMat(path + "tempspades.png"),
                                                                   new CvMat(path + "tempclubs.png"),
                                                                   new CvMat(path + "tempdiamonds.png"),
@@ -52,7 +58,7 @@ namespace ConsoleApplication5
             Cv.SaveImage("temp.png", src);
             Cv.ResetImageROI(src);
 
-            var image = new CvMat(path + @"bin/Debug/temp.png");
+            CvMat image = new CvMat(path + @"bin/Debug/temp.png");
             double maximum = 0, maxVal, minVal;
             CvPoint maxLoc, minLoc;
             int num = 0;
@@ -71,7 +77,7 @@ namespace ConsoleApplication5
                 }
             }
 
-            Card card;
+            Card card = null;
             switch (num)
             {
                 //black suit
@@ -93,6 +99,7 @@ namespace ConsoleApplication5
                     Console.WriteLine(card.ToString());
                     break;
             }
+            return card;
         }
 
         static int WhatCard(bool black)

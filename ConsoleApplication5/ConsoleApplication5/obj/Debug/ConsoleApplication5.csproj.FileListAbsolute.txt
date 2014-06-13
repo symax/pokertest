@@ -63,4 +63,3 @@ D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.CPlusP
 D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.dll
 D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.Extensions.dll
 D:\Git\test\ConsoleApplication5\ConsoleApplication5\bin\Debug\OpenCvSharp.UserInterface.dll
-D:\Git\test\ConsoleApplication5\ConsoleApplication5\obj\Debug\ConsoleApplication5.csprojResolveAssemblyReference.cache
