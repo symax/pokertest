@@ -14,18 +14,26 @@ namespace ConsoleApplication5
         
         static void Main(string[] args)
         {
+            //взять 1 скрин
             Console.WriteLine("В руке:\n");
             WhatSuit(445, 470);
             WhatSuit(506, 470);
+            //выдать шансы улучшить руку
 
+            //взять 2 скрин
             Console.WriteLine("\nНа столе:\n");
             WhatSuit(348, 272);
             WhatSuit(413, 272);
             WhatSuit(478, 272);
+            //выдать шансы улучшить руку
 
+            //взять 3 скрин
             WhatSuit(543, 272);
+            //выдать шансы улучшить руку
 
+            //взять 4 скрин
             WhatSuit(608, 272);
+            //выдать итоговую комбинацию
 
             Console.ReadKey(true);
         }
@@ -63,30 +71,31 @@ namespace ConsoleApplication5
                 }
             }
 
+            Card card;
             switch (num)
             {
                 //black suit
                 case 0:
-                    WhatCard(true);
-                    Console.WriteLine(" пики");
+                    card = new Card((Values)WhatCard(true), Suits.Spades);
+                    Console.WriteLine(card.ToString());
                     break;
                 case 1:
-                    WhatCard(true);
-                    Console.WriteLine(" треф");
+                    card = new Card((Values)WhatCard(true), Suits.Clubs);
+                    Console.WriteLine(card.ToString());
                     break;
                 //red suit
                 case 2:
-                    WhatCard(false);
-                    Console.WriteLine(" буби");
+                    card = new Card((Values)WhatCard(false), Suits.Diamonds);
+                    Console.WriteLine(card.ToString());
                     break;
                 case 3:
-                    WhatCard(false);
-                    Console.WriteLine(" черви");
+                    card = new Card((Values)WhatCard(false), Suits.Hearts);
+                    Console.WriteLine(card.ToString());
                     break;
             }
         }
 
-        static void WhatCard(bool black)
+        static int WhatCard(bool black)
         {
             List<CvMat> templates = new List<CvMat>();
             var image = new CvMat(path + @"bin/Debug/temp.png");
@@ -141,49 +150,7 @@ namespace ConsoleApplication5
                     num = i;
                 }
             }
-
-            switch (num)
-            {
-                case 0:
-                    Console.Write("2");
-                    break;
-                case 1:
-                    Console.Write("3");
-                    break;
-                case 2:
-                    Console.Write("4");
-                    break;
-                case 3:
-                    Console.Write("5");
-                    break;
-                case 4:
-                    Console.Write("6");
-                    break;
-                case 5:
-                    Console.Write("7");
-                    break;
-                case 6:
-                    Console.Write("8");
-                    break;
-                case 7:
-                    Console.Write("9");
-                    break;
-                case 8:
-                    Console.Write("10");
-                    break;
-                case 9:
-                    Console.Write("Валет");
-                    break;
-                case 10:
-                    Console.Write("Дама");
-                    break;
-                case 11:
-                    Console.Write("Король");
-                    break;
-                case 12:
-                    Console.Write("Туз");
-                    break;
-            }
+            return num;
         }
     }
 }
