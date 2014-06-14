@@ -21,8 +21,7 @@ namespace ConsoleApplication5
             c1 = WhatSuit(445, 470, src);
             c2 = WhatSuit(506, 470, src);
             //выдать шансы улучшить руку
-            Odds.PreFlopOdds(c1, c2);
-
+            Combinations.WhatCombination(c1, c2);
             
             //взять 2 скрин
             src = new IplImage(path + "screen2.png");
@@ -32,7 +31,6 @@ namespace ConsoleApplication5
             Card d3 = WhatSuit(478, 272, src);
             //выдать текущую комбинацию и шансы улучшить руку
             Combinations.WhatCombination(c1, c2, d1, d2, d3);
-            Odds.FlopOdds(c1, c2, d1, d2, d3);
 
             /*
             //взять 3 скрин
