@@ -49,24 +49,19 @@ namespace ConsoleApplication5
                         Console.WriteLine("Шансы улучшить руку = 0%");
                         break;
                     case 6:
-                        //Odds.FHPlus(cards);
+                        Odds.FHPlus(cards);
                         break;
                     case 5:
                         Odds.FlushPlus(cards);
                         break;
                     case 4:
-                        //Odds.StrPlus(cards);
-                        //Odds.FlushDraw(cards);
+                        Odds.StrPlus(cards);
                         break;
                     case 3:
-                        //Odds.TOAKPlus(cards);
-                        //Odds.FlushDraw(cards);
-                        //Odds.StraightDraw(cards);
+                        Odds.TOAKPlus(cards);
                         break;
                     case 2:
-                        //Odds.TPPlus(cards);
-                        //Odds.FlushDraw(cards);
-                        //Odds.StraightDraw(cards);
+                        Odds.TPPlus(cards);
                         break;
                     case 1:
                         //Odds.PairPlus(cards);
