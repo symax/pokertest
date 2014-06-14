@@ -64,15 +64,34 @@ namespace ConsoleApplication5
                         Odds.TPPlus(cards);
                         break;
                     case 1:
-                        //Odds.PairPlus(cards);
-                        //Odds.FlushDraw(cards);
-                        //Odds.StraightDraw(cards);
+                        Odds.PairPlus(cards);
                         break;
 
                     default:
-                        //Odds.FlushDraw(cards);
-                        //Odds.StraightDraw(cards);
-                        double odds = 6.0 * 100 / (52 - cards.Length);
+                        List<Card> deck = new List<Card>();
+                        for (int i = 0; i < 4; i++)
+                            for (int j = 0; j < 13; j++)
+                                deck.Add(new Card((Values)j, (Suits)i));
+
+                        for (int i = 0; i < cards.Length; i++)
+                            for(int j=0; j<deck.Count;j++)
+                                if (cards[i].Value == deck[j].Value && cards[i].Suit == deck[j].Suit)
+                                {
+                                    deck.RemoveAt(j); // в deck остались только неизвестные карты
+                                    j--;
+                                }
+
+                        int kol = 0;
+                        if (cards[0].Value == cards[1].Value)
+                            kol = 2;
+                        else
+                            kol = 6;
+                        double odds = 100.0;
+                        int tmp = Odds.FlushDraw(ref deck, cards);
+                        kol += tmp;
+                        tmp = Odds.StraightDraw(ref deck, cards);
+                        kol += tmp;
+                        odds *= (double)kol / (double)(52 - cards.Length);
                         Console.WriteLine("Шансы улучшить руку = " + odds.ToString(".00") + '%');
                         break;
                 }
@@ -195,15 +214,20 @@ namespace ConsoleApplication5
                 {
                     if (desk[i].Value == Values.Ace)
                         Ace = true;
-                    if (((desk[i].Value == desk[i - 1].Value + 1) && (desk[i - 1].Value == desk[i - 2].Value + 1) &&
-                        (desk[i - 2].Value == desk[i - 3].Value + 1) && (desk[i - 3].Value == desk[i - 4].Value + 1)) ||
-                        (Ace && (desk[i].Value == Values.Five) &&
-                        (desk[i - 1].Value == Values.Four) && (desk[i - 2].Value == Values.Three) &&
-                        (desk[i - 3].Value == Values.Two)))
+                    if ((desk[i].Value == desk[i - 1].Value + 1) && (desk[i - 1].Value == desk[i - 2].Value + 1) &&
+                        (desk[i - 2].Value == desk[i - 3].Value + 1) && (desk[i - 3].Value == desk[i - 4].Value + 1))
                     {
                         Console.WriteLine("Стрит до " + desk[i].Value.ToString());
                         return 4;
                     }
+                    else
+                        if (Ace && (desk[i - 1].Value == Values.Five) &&
+                        (desk[i - 2].Value == Values.Four) && (desk[i - 3].Value == Values.Three) &&
+                        (desk[i - 4].Value == Values.Two))
+                        {
+                            Console.WriteLine("Стрит до " + desk[i-1].Value.ToString());
+                            return 4;
+                        }
                 }
             }
 
@@ -325,18 +349,23 @@ namespace ConsoleApplication5
                         Ace = true;
                         suitAce = desk[i].Suit;
                     }
-                    if (((desk[i].Value == desk[i - 1].Value + 1) && (desk[i - 1].Value == desk[i - 2].Value + 1) &&
+                    if ((desk[i].Value == desk[i - 1].Value + 1) && (desk[i - 1].Value == desk[i - 2].Value + 1) &&
                         (desk[i - 2].Value == desk[i - 3].Value + 1) && (desk[i - 3].Value == desk[i - 4].Value + 1) &&
                         desk[i].Suit == desk[i-1].Suit && desk[i-1].Suit == desk[i-2].Suit && desk[i-2].Suit == desk[i-3].Suit &&
-                        desk[i-3].Suit == desk[i-4].Suit) ||
-                        (Ace && (desk[i].Value == Values.Five) &&
-                        (desk[i - 1].Value == Values.Four) && (desk[i - 2].Value == Values.Three) &&
-                        (desk[i - 3].Value == Values.Two) && desk[i].Suit == desk[i - 1].Suit && desk[i - 1].Suit == desk[i - 2].Suit && 
-                        desk[i - 2].Suit == desk[i - 3].Suit && desk[i-3].Suit == suitAce))
+                        desk[i-3].Suit == desk[i-4].Suit)
                     {
                         Console.WriteLine("Стрит Флеш до " + desk[i].Value.ToString());
                         return 8;
                     }
+                    else
+                        if (Ace && (desk[i-1].Value == Values.Five) &&
+                        (desk[i - 2].Value == Values.Four) && (desk[i - 3].Value == Values.Three) &&
+                        (desk[i - 4].Value == Values.Two) && desk[i-1].Suit == desk[i - 2].Suit && desk[i - 2].Suit == desk[i - 3].Suit &&
+                        desk[i - 3].Suit == desk[i - 4].Suit && desk[i - 4].Suit == suitAce)
+                        {
+                            Console.WriteLine("Стрит Флеш до " + desk[i-1].Value.ToString());
+                            return 8;
+                        }
                 }
             }
 
