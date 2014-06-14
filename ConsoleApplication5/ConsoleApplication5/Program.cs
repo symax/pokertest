@@ -17,26 +17,33 @@ namespace ConsoleApplication5
             //взять 1 скрин
             IplImage src = new IplImage(path + "screen1.png");
             Card c1, c2;
-            Console.WriteLine("В руке:\n");
+            Console.WriteLine("Hand:\n");
             c1 = WhatSuit(445, 470, src);
             c2 = WhatSuit(506, 470, src);
+            Console.WriteLine();
             //выдать шансы улучшить руку
             Combinations.WhatCombination(c1, c2);
             
             //взять 2 скрин
             src = new IplImage(path + "screen2.png");
-            Console.WriteLine("\nНа столе:\n");
+            Console.WriteLine("\nFlop:\n");
             Card d1 = WhatSuit(348, 272, src);
             Card d2 = WhatSuit(413, 272, src);
             Card d3 = WhatSuit(478, 272, src);
+            Console.WriteLine();
             //выдать текущую комбинацию и шансы улучшить руку
             Combinations.WhatCombination(c1, c2, d1, d2, d3);
 
-            /*
+            
             //взять 3 скрин
-            WhatSuit(543, 272);
+            src = new IplImage(path + "screen3.png");
+            Console.WriteLine("\nTurn:\n");
+            Card d4 = WhatSuit(543, 272, src);
+            Console.WriteLine();
             //выдать шансы улучшить руку
+            Combinations.WhatCombination(c1, c2, d1, d2, d3, d4);
 
+            /*
             //взять 4 скрин
             WhatSuit(608, 272);
             //выдать итоговую комбинацию
