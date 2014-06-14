@@ -28,9 +28,12 @@ namespace ConsoleApplication5
                     deck.Add(new Card((Values)j, (Suits)i));
 
             for (int i = 0; i < cards.Length; i++)
-                foreach (Card c in deck)
-                    if (cards[i].Value == c.Value && cards[i].Suit == c.Suit)
-                        deck.Remove(c); // в deck остались только неизвестные карты
+                for(int j=0; j<deck.Count; j++)
+                    if (cards[i].Value == deck[j].Value && cards[i].Suit == deck[j].Suit)
+                    {
+                        deck.Remove(deck[j]); // в deck остались только неизвестные карты
+                        j--;
+                    }
 
             List<Card> desk = new List<Card>();
             for (int i = 0; i < cards.Length; i++)
@@ -64,9 +67,12 @@ namespace ConsoleApplication5
                     deck.Add(new Card((Values)j, (Suits)i));
 
             for (int i = 0; i < cards.Length; i++)
-                foreach (Card c in deck)
-                    if (cards[i].Value == c.Value && cards[i].Suit == c.Suit)
-                        deck.Remove(c); // в deck остались только неизвестные карты
+                for (int j = 0; j < deck.Count; j++)
+                    if (cards[i].Value == deck[j].Value && cards[i].Suit == deck[j].Suit)
+                    {
+                        deck.Remove(deck[j]); // в deck остались только неизвестные карты
+                        j--;
+                    }
 
             List<Card> desk = new List<Card>();
             for (int i = 0; i < cards.Length; i++)
@@ -168,6 +174,7 @@ namespace ConsoleApplication5
                             {
                                 num++;
                                 deck.Remove(deck[j]);
+                                j--;
                             }
                         break;
                     }
@@ -181,6 +188,7 @@ namespace ConsoleApplication5
                                 {
                                     num++;
                                     deck.Remove(deck[j]);
+                                    j--;
                                 }
                             break;
                         }
@@ -208,11 +216,12 @@ namespace ConsoleApplication5
                 {
                     if (desk[i].Suit == desk[i - 1].Suit && desk[i - 1].Suit == desk[i - 2].Suit && desk[i - 2].Suit == desk[i - 3].Suit)
                     {
-                        foreach (Card c in deck)
-                            if (c.Suit == desk[i].Suit)
+                        for(int j=0; j<deck.Count;j++)
+                            if (deck[j].Suit == desk[i].Suit)
                             {
                                 num++;
-                                deck.Remove(c);
+                                deck.Remove(deck[j]);
+                                j--;
                             }
                         return num;
                     }
@@ -229,9 +238,12 @@ namespace ConsoleApplication5
                     deck.Add(new Card((Values)j, (Suits)i));
 
             for (int i = 0; i < cards.Length; i++)
-                foreach (Card c in deck)
-                    if (cards[i].Value == c.Value && cards[i].Suit == c.Suit)
-                        deck.Remove(c); // в deck остались только неизвестные карты
+                for (int j = 0; j < deck.Count; j++)
+                    if (cards[i].Value == deck[j].Value && cards[i].Suit == deck[j].Suit)
+                    {
+                        deck.Remove(deck[j]); // в deck остались только неизвестные карты
+                        j--;
+                    }
 
             List<Card> desk = new List<Card>();
             for (int i = 0; i < cards.Length; i++)
@@ -246,11 +258,12 @@ namespace ConsoleApplication5
                 {
                     if (desk[i].Value == desk[i - 1].Value && desk[i - 1].Value == desk[i - 2].Value)
                     {
-                        foreach(Card c in deck)
-                            if (c.Value == desk[i].Value)
+                        for(int j=0;j<deck.Count;j++)
+                            if (deck[j].Value == desk[i].Value)
                             {
                                 num++;
-                                deck.Remove(c);
+                                deck.Remove(deck[j]);
+                                j--;
                             }
                         break;
                     }
@@ -419,9 +432,12 @@ namespace ConsoleApplication5
                     deck.Add(new Card((Values)j, (Suits)i));
 
             for (int i = 0; i < cards.Length; i++)
-                foreach (Card c in deck)
-                    if (cards[i].Value == c.Value && cards[i].Suit == c.Suit)
-                        deck.Remove(c); // в deck остались только неизвестные карты
+                for (int j = 0; j < deck.Count; j++)
+                    if (cards[i].Value == deck[j].Value && cards[i].Suit == deck[j].Suit)
+                    {
+                        deck.Remove(deck[j]); // в deck остались только неизвестные карты
+                        j--;
+                    }
 
             List<Card> desk = new List<Card>();
             for (int i = 0; i < cards.Length; i++)
@@ -455,11 +471,12 @@ namespace ConsoleApplication5
                         }
                     if (flag == 2)
                     {
-                        foreach(Card c in deck)
-                            if (c.Value == value1 || c.Value == value2)
+                        for(int j=0;j<deck.Count;j++)
+                            if (deck[j].Value == value1 || deck[j].Value == value2)
                             {
                                 num++;
-                                deck.Remove(c);
+                                deck.Remove(deck[j]);
+                                j--;
                             }
                         break;
                     }
@@ -482,9 +499,12 @@ namespace ConsoleApplication5
                     deck.Add(new Card((Values)j, (Suits)i));
 
             for (int i = 0; i < cards.Length; i++)
-                foreach (Card c in deck)
-                    if (cards[i].Value == c.Value && cards[i].Suit == c.Suit)
-                        deck.Remove(c); // в deck остались только неизвестные карты
+                for (int j = 0; j < deck.Count; j++)
+                    if (cards[i].Value == deck[j].Value && cards[i].Suit == deck[j].Suit)
+                    {
+                        deck.Remove(deck[j]); // в deck остались только неизвестные карты
+                        j--;
+                    }
 
             List<Card> desk = new List<Card>();
             for (int i = 0; i < cards.Length; i++)
@@ -496,19 +516,21 @@ namespace ConsoleApplication5
             for (int i = 0; i < desk.Count - 1; i++)
                 if (desk[i].Value == desk[i + 1].Value)
                 {
-                    foreach(Card c in deck)
-                        if (c.Value == desk[i].Value)
+                    for(int j=0;j<deck.Count;j++)
+                        if (deck[j].Value == desk[i].Value)
                         {
                             num++;
-                            deck.Remove(c);
+                            deck.Remove(deck[j]);
+                            j--;
                         }
                     foreach(Card c in desk)
                         if(c.Value != desk[i].Value)
-                            foreach(Card d in deck)
-                                if (c.Value == d.Value)
+                            for(int j=0;j<deck.Count;j++)
+                                if (c.Value == deck[j].Value)
                                 {
                                     num++;
-                                    deck.Remove(d);
+                                    deck.Remove(deck[j]);
+                                    j--;
                                 }
                     break;
                 }
