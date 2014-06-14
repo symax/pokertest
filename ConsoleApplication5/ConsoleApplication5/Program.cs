@@ -31,6 +31,7 @@ namespace ConsoleApplication5
             Card d2 = WhatSuit(413, 272, src);
             Card d3 = WhatSuit(478, 272, src);
             //выдать текущую комбинацию и шансы улучшить руку
+            Combinations.WhatCombination(c1, c2, d1, d2, d3);
             Odds.FlopOdds(c1, c2, d1, d2, d3);
 
             /*
