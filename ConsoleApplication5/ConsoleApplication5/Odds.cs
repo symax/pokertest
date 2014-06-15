@@ -44,7 +44,7 @@ namespace ConsoleApplication5
             double odds;
             if (desk.Count > 4)
             {
-                for (int i = desk.Count - 1; i < 3; i++)
+                for (int i = desk.Count - 1; i > 3; i--)
                 {
                     if (desk[i].Suit == desk[i - 1].Suit && desk[i - 1].Suit == desk[i - 2].Suit && desk[i - 2].Suit == desk[i - 3].Suit && desk[i - 3].Suit == desk[i - 4].Suit)
                     {
@@ -212,7 +212,7 @@ namespace ConsoleApplication5
             int num = 0;
             if (desk.Count > 3)
             {
-                for (int i = desk.Count - 1; i < 2; i++)
+                for (int i = desk.Count - 1; i > 2; i--)
                 {
                     if (desk[i].Suit == desk[i - 1].Suit && desk[i - 1].Suit == desk[i - 2].Suit && desk[i - 2].Suit == desk[i - 3].Suit)
                     {

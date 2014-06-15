@@ -246,7 +246,7 @@ namespace ConsoleApplication5
             desk.Sort(Card.SortBySuit);
             if (desk.Count > 4)
             {
-                for (int i = desk.Count - 1; i < 3; i++)
+                for (int i = desk.Count - 1; i > 3; i--)
                 {
                     if (desk[i].Suit == desk[i - 1].Suit && desk[i - 1].Suit == desk[i - 2].Suit && desk[i - 2].Suit == desk[i - 3].Suit && desk[i - 3].Suit == desk[i - 4].Suit)
                     {
@@ -284,7 +284,7 @@ namespace ConsoleApplication5
             }
             if (Set)
             {
-                for (int i = desk.Count - 1; i > 0; i++)
+                for (int i = desk.Count - 1; i > 0; i--)
                     if (desk[i].Value == desk[i - 1].Value)
                     {
                         value2 = desk[i].Value;

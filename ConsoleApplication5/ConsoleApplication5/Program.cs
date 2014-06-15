@@ -11,11 +11,11 @@ namespace ConsoleApplication5
     class Program
     {
         private const string path = @"D:\Git\Test\ConsoleApplication5\ConsoleApplication5\";
-        
+
         static void Main(string[] args)
         {
             //взять 1 скрин
-            IplImage src = new IplImage(path + "screen1.png");
+            IplImage src = new IplImage(path + "bug.png");
             Card c1, c2;
             Console.WriteLine("Hand:\n");
             c1 = WhatSuit(445, 470, src);
@@ -23,9 +23,9 @@ namespace ConsoleApplication5
             Console.WriteLine();
             //выдать шансы улучшить руку
             Combinations.WhatCombination(c1, c2);
-            
+
+
             //взять 2 скрин
-            src = new IplImage(path + "screen2.png");
             Console.WriteLine("\nFlop:\n");
             Card d1 = WhatSuit(348, 272, src);
             Card d2 = WhatSuit(413, 272, src);
@@ -34,17 +34,16 @@ namespace ConsoleApplication5
             //выдать текущую комбинацию и шансы улучшить руку
             Combinations.WhatCombination(c1, c2, d1, d2, d3);
 
-            
+
             //взять 3 скрин
-            src = new IplImage(path + "screen3.png");
             Console.WriteLine("\nTurn:\n");
             Card d4 = WhatSuit(543, 272, src);
             Console.WriteLine();
             //выдать шансы улучшить руку
             Combinations.WhatCombination(c1, c2, d1, d2, d3, d4);
 
-            /*
-            //взять 4 скрин
+
+            /*/взять 4 скрин
             WhatSuit(608, 272);
             //выдать итоговую комбинацию
              */
@@ -70,6 +69,28 @@ namespace ConsoleApplication5
             int num = 0;
             CvMat template;
             IplImage result;
+
+            //Проверяем на пустоту
+            
+            if (x == 445 || x == 348 || x == 543)
+            {
+                template = null;
+                if (x == 445)
+                    template = new CvMat(path + @"nothingInHandTemplate.png");
+                else
+                    if (x == 348)
+                        template = new CvMat(path + @"nothingInFlopTemplate.png");
+                    else
+                        if (x == 543)
+                            template = new CvMat(path + @"nothingInTurnTemplate.png");
+
+                result = new IplImage(new CvSize(image.Cols - template.Cols + 1, image.Rows - template.Rows + 1), BitDepth.F32, 1);
+                Cv.MatchTemplate(image, template, result, MatchTemplateMethod.CCoeff);
+                Cv.MinMaxLoc(result, out minVal, out maxVal, out minLoc, out maxLoc);
+                if (maxVal == 2379018.75 || maxVal == 9311.8125 || maxVal == 1920095.125)
+                    return null;
+            }
+
             for (int i = 0; i < 4; i++)
             {
                 template = templates[i];
